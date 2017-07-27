@@ -21,4 +21,6 @@ THe training experiment is done to create color or black and white images using 
 The code runs and saves the generated image after a couple of epochs in the folder name specified. Moreover, learning rate 1 pertain to the learning rate of the generator, learning rate 2 that of the discriminator and the momentum is the momentun for both of the learning systems. 
 
 ### Results : 
-(coming soon)
+See the following blog posts for results, discussion and more :
+
+1. https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-2-c4589fb169b1
