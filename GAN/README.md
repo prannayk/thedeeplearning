@@ -23,4 +23,4 @@ The code runs and saves the generated image after a couple of epochs in the fold
 ### Results : 
 See the following blog posts for results, discussion and more :
 
-1. https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-2-c4589fb169b1
+1. [Deep Learning #2](https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-2-c4589fb169b1)
