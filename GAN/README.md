@@ -8,9 +8,9 @@ We implement this idea in multiple ways :
 
 1. Standard GANs : here the entire idea is that the discriminator will try to assign a probability for every generated and true sample and it will learn how to do this better. The assigned probability is a measure of if the said sample is true or not. The generator network will try to beat the discriminator network and therefore will try to learn how to fool it better or rather be motivated to learn in a way that the discriminator assigns the samples the generator generates a higher probability of being real. 
 
-2. Energy based GANs : here the entire idea is that the discriminator will try relate a embedding (generator by the discrminator) for both a generated and real sample. Furthermore, the discriminator tries to increase the distance between such embedding, but the generator tries to reduce this distance by trying to fool the discriminator. 
+2. Wasserstein GANs : Wasserstein GANs tries to do what standard GANs do, but better, in the sense that in the sense that it tries to model the distributions by not considering the probability of being real or fake, but by trying to reduce the distance of two distributions (defined as the earth mover's distance). The training idea remains the same. 
 
-3. Wasserstein GANs : Wasserstein GANs tries to do what standard GANs do, but better, in the sense that in the sense that it tries to model the distributions by not considering the probability of being real or fake, but by trying to reduce the distance of two distributions (defined as the earth mover's distance). The training idea remains the same. 
+3. Energy based GANs : here the entire idea is that the discriminator will try relate a embedding (generator by the discrminator) for both a generated and real sample. Furthermore, the discriminator tries to increase the distance between such embedding, but the generator tries to reduce this distance by trying to fool the discriminator. The idea here therefore is that, given an image, it is encoded into a latent representation and decoded to give an image (this network is entirely convolutional). Going ahead from there, the discriminator calculates the Mean squared reconstruction error. This reconstruction error gives the training loss, since the discriminator tries to minimize this for the real images and maximises it for the fake images. Therefore implying, that the only way the generator can learn is implicitly learning to create images the discriminator is able to reconstruct as good as the real iamges. This idea is stronger than GANs and WGANs, but larger too. Generally, it has been noticed that EBGANs generally show good properties (representing the images) in their latent layers in the Autoencoder network (the discriminator)
 
 ## Experimental setup 
 THe training experiment is done to create color or black and white images using these setups. 
@@ -23,4 +23,5 @@ The code runs and saves the generated image after a couple of epochs in the fold
 ### Results : 
 See the following blog posts for results, discussion and more :
 
-1. [Deep Learning #2](https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-2-c4589fb169b1)
+1. [Deep Learning #2 (GANs)](https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-2-c4589fb169b1)
+2. [Deep Learning #3 (Wasserstein GANs)](https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-3-c4c950b20b92)

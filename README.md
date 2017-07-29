@@ -8,3 +8,5 @@ End result : we often re invent the wheel. This repo is exactly the same thing, 
 2. Word + Character level LSTM models ( coming soon )
 
 ### This work is available for use under MIT License
+
+Refer to this blog post for details : [Deep Learning #1](https://medium.com/@prannaykhosla/writing-a-deep-learning-repo-1-744c268c7189)
