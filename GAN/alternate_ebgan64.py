@@ -167,7 +167,7 @@ class EBGAN():
 				embedding = self.encoder_image(image, scope)
 			with tf.variable_scope("decoder") as scope:
 				image_reconstr = self.encoder_image(embedding, zvalue, scope)
-			return tf.sqrt(tf.reduce_mean(tf.square(image - image_reconstr)))
+			return tf.sqrt(tf.reduce_mean(tf.square(image - image_reconstr))), embedding
 	def build_mode(self):
 		with tf.device(self.device):
 			embedding = tf.placeholder(tf.float32, [self.batch_size, self.embedding_size])
@@ -182,6 +182,6 @@ class EBGAN():
 			with tf.variable_scope("discriminator") as scope:
 				scope.reuse_variables()
 				fake_value = self.discriminate(g_image,classes,scope)
-			d_cost = real_value - fake_value
-			g_cost = fake_value
+			d_cost = tf.reduce_mean(real_value[1] - fake_value[1]) + self.lambda_1*(real_value[0] + fake_value[0])
+			g_cost = tf.reduce_mean(fake_value[1]) + fake_value[0]
 			return embedding, classes, r_image, d_cost, g_cost, fake_value, real_value
